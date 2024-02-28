@@ -1,20 +1,39 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
+
 import { AppComponent } from './app.component';
+import { NewTattooComponent } from './components/new-tattoo/new-tattoo.component';
+import { ListTattooComponent } from './components/list-tattoo/list-tattoo.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NewTattooComponent,
+    ListTattooComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    BrowserModule.withServerTransition({ appId: 'your-app-id' }),
+    AppRoutingModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    HttpClientModule
   ],
-  providers: [
-    provideClientHydration()
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private http: HttpClient) {
+    // Configura HttpClient para usar fetch solo en el navegador
+    if (typeof window !== 'undefined') {
+      http.constructor.prototype.fetch = window.fetch.bind(window);
+    }
+  }
+}

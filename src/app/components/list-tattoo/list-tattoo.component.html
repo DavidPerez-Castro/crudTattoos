@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+          <div class="card">
+              <div class="card-body text-center">
+                  <span class="titulo">LISTADO DE TATUAJES</span>
+                  <button class="btn btn-success float-end" routerLink="/new-tattoo">NUEVO</button>
+                  <table *ngIf="listTattoos.length > 0" class="table table-striped mt-3">
+                      <thead>
+                        <tr>
+                          <th scope="col">Titulo</th>
+                          <th scope="col">Descripción</th>
+                          <th scope="col">Precio</th>
+                          <th scope="col">Detalles</th>
+                          <th  scope="col">Imagen</th>
+                          <th scope="col"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let tattoo of listTattoos">
+                          <td>{{ tattoo.title }}</td>
+                          <td>{{ tattoo.description }}</td>
+                          <td>{{ tattoo.price | currency:'MXN' }}</td>
+                          <td>{{ tattoo.details }}</td>
+                          <td>
+                            <img src="{{ tattoo.imageUrl }}" alt="{{ tattoo.title }}" style="max-width: 100px; max-height: 100px; object-fit: cover;">
+                          </td>
+                          <td>
+                              <i [routerLink]="['/edit', tattoo._id]" class="fas fa-edit text-primary"></i>
+                              <i (click)="deleteTattoo(tattoo._id)" class="fas fa-trash text-danger"></i>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h5 style="text-align: start; margin-top: 10px;" *ngIf="listTattoos.length == 0">No hay tatuajes para mostrar</h5>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

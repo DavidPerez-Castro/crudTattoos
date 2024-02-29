@@ -24,9 +24,12 @@
     ]
   },
   "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
+    "enableIvy": true, // Asegúrate de que Ivy esté habilitado
+    "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true,
+    "strictTemplates": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictPropertyInitialization": true,
+    "skipLibCheck": true
   }
 }

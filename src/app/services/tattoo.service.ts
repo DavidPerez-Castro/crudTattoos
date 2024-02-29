@@ -2,12 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Tattoo } from '../models/tattoo';
+import { environments } from '../../environments/environments.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TattooService {
-  url = 'http://localhost:4000/api/tattoos/';
+
+  private url: string = environments.url;
+
   constructor(private http: HttpClient) { }
 
   //Mostrar todos los tatuajes

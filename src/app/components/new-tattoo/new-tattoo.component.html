@@ -34,7 +34,39 @@
               <input type="text" formControlName="details" class="form-control form-control-lg" placeholder="Detalles">
               <div class="text-danger"
                 *ngIf="tattooForm.get('details')?.hasError('required') && tattooForm.get('details')?.touched">
-                <span>Los detalles <strong>es obligatoria</strong></span>
+                <span>Los detalles <strong>es obligatorio</strong></span>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <input type="text" formControlName="size" class="form-control form-control-lg" placeholder="Tamaño">
+              <div class="text-danger"
+                *ngIf="tattooForm.get('size')?.hasError('required') && tattooForm.get('size')?.touched">
+                <span>El tamaño <strong>es obligatorio</strong></span>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <input type="text" formControlName="color" class="form-control form-control-lg" placeholder="Color">
+              <div class="text-danger"
+                *ngIf="tattooForm.get('color')?.hasError('required') && tattooForm.get('color')?.touched">
+                <span>Los colores <strong>es obligatorio</strong></span>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <input type="text" formControlName="style" class="form-control form-control-lg" placeholder="Estilo">
+              <div class="text-danger"
+                *ngIf="tattooForm.get('style')?.hasError('required') && tattooForm.get('style')?.touched">
+                <span>El estilo <strong>es obligatorio</strong></span>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <input type="text" formControlName="bodyPart" class="form-control form-control-lg" placeholder="Parte del cuerpo">
+              <div class="text-danger"
+                *ngIf="tattooForm.get('bodyPart')?.hasError('required') && tattooForm.get('bodyPart')?.touched">
+                <span>La parte del cuerpo <strong>es obligatoria</strong></span>
               </div>
             </div>
 

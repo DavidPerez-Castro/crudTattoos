@@ -1,3 +1,3 @@
 export const environments = {
-  url: 'http://localhost:8080/api/tattoos'
+  url: 'http://localhost:4000/api/tattoos'
 }

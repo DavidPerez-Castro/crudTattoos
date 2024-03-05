@@ -1,6 +1,6 @@
-<div class="container mt-5">
+<div class="container mt-5 mb-5 d-flex align-items-center justify-content-center">
   <div class="row">
-      <div class="col-lg-8 offset-lg-2">
+      <div class="">
           <div class="card">
               <div class="card-body text-center">
                   <span class="titulo">LISTADO DE TATUAJES</span>
@@ -12,7 +12,11 @@
                           <th scope="col">Descripción</th>
                           <th scope="col">Precio</th>
                           <th scope="col">Detalles</th>
-                          <th  scope="col">Imagen</th>
+                          <th scope="col">Tamaño</th>
+                          <th scope="col">Color</th>
+                          <th scope="col">Estilo</th>
+                          <th scope="col">Parte del cuerpo</th>
+                          <th scope="col">Imagen</th>
                           <th scope="col"></th>
                         </tr>
                       </thead>
@@ -22,6 +26,10 @@
                           <td>{{ tattoo.description }}</td>
                           <td>{{ tattoo.price | currency:'MXN' }}</td>
                           <td>{{ tattoo.details }}</td>
+                          <td>{{ tattoo.size }}</td>
+                          <td>{{ tattoo.color }}</td>
+                          <td>{{ tattoo.style }}</td>
+                          <td>{{ tattoo.bodyPart }}</td>
                           <td>
                             <img src="{{ tattoo.imageUrl }}" alt="{{ tattoo.title }}" style="max-width: 100px; max-height: 100px; object-fit: cover;">
                           </td>

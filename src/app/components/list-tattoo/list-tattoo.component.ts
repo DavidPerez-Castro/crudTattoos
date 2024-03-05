@@ -27,12 +27,13 @@ export class ListTattooComponent implements OnInit {
   }
 
   deleteTattoo(id: any) {
+    console.log("Deleting tattoo with ID: ", id); // Agrega esta línea
     this.tattooService.deleteTattoo(id).subscribe(data => {
-      this.toastr.error('El tatuaje fue eliminado con exito' ,'Tatuaje Eliminado');
+      this.toastr.error('El tatuaje fue eliminado con exito', 'Tatuaje Eliminado');
       this.getTattoos();
     }, error => {
       console.log(error);
-    })
+    });
   }
 
 }

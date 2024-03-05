@@ -15,27 +15,27 @@ export class TattooService {
 
   //Mostrar todos los tatuajes
   getTattoos(): Observable<any> {
-    return this.http.get(this.url);
+    return this.http.get(`${this.url}/`);
   }
 
   //Agregar tatuaje
   addTatto(tattoo: Tattoo): Observable<any> {
-    return this.http.post(this.url, tattoo);
+    return this.http.post(`${this.url}/`, tattoo);
   }
 
   // Borrar tatuaje
   deleteTattoo(id: string): Observable<any> {
-    return this.http.delete(this.url + id);
+    return this.http.delete(`${this.url}/${id}`);
   }
 
   // Actualizar tatuaje
   editTattoo(id: string, tattoo: Tattoo): Observable<any> {
-    return this.http.put(this.url + id, tattoo);
+    return this.http.put(`${this.url}/${id}`, tattoo);
   }
 
   //Obtener tatuaje por id
   getTattooById(id: string): Observable<any> {
-    return this.http.get(this.url + id);
+    return this.http.get(`${this.url}/${id}`);
   }
 
 }

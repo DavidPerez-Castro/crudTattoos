@@ -25,6 +25,10 @@ export class NewTattooComponent implements OnInit {
       description: ['', Validators.required],
       price: ['', Validators.required],
       details: ['', Validators.required],
+      size: ['', Validators.required],
+      color: ['', Validators.required],
+      style: ['', Validators.required],
+      bodyPart: ['', Validators.required],
       imageUrl: ['', [Validators.required, this.validateImageUrl]],
     });
 
@@ -37,6 +41,10 @@ export class NewTattooComponent implements OnInit {
           description: tattoo.description,
           price: tattoo.price,
           details: tattoo.details,
+          size: tattoo.size,
+          color: tattoo.color,
+          style: tattoo.style,
+          bodyPart: tattoo.bodyPart,
           imageUrl: tattoo.imageUrl,
         });
       });
@@ -53,6 +61,10 @@ export class NewTattooComponent implements OnInit {
       description: this.tattooForm.get('description')?.value,
       price: this.tattooForm.get('price')?.value,
       details: this.tattooForm.get('details')?.value,
+      size: this.tattooForm.get('size')?.value,
+      color: this.tattooForm.get('color')?.value,
+      style: this.tattooForm.get('style')?.value,
+      bodyPart: this.tattooForm.get('bodyPart')?.value,
       imageUrl: this.tattooForm.get('imageUrl')?.value,
     };
 

@@ -6,7 +6,7 @@ import { TattooService } from '../../services/tattoo.service';
 @Component({
   selector: 'app-list-tattoo',
   templateUrl: './list-tattoo.component.html',
-  styleUrl: './list-tattoo.component.css'
+  styleUrls: ['./list-tattoo.component.css']
 })
 export class ListTattooComponent implements OnInit {
   listTattoos: Tattoo[] = [];
@@ -18,22 +18,20 @@ export class ListTattooComponent implements OnInit {
   }
 
   getTattoos() {
-    this.tattooService.getTattoos().subscribe(data => {
-      console.log(data);
-      this.listTattoos = data;
-    }, error => {
-      console.log(error);
-    })
+    this.tattooService.getTattoos().subscribe(
+      data => {
+        console.log(data);
+        this.listTattoos = data;
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
-  deleteTattoo(id: any) {
-    console.log("Deleting tattoo with ID: ", id); // Agrega esta línea
-    this.tattooService.deleteTattoo(id).subscribe(data => {
-      this.toastr.error('El tatuaje fue eliminado con exito', 'Tatuaje Eliminado');
-      this.getTattoos();
-    }, error => {
-      console.log(error);
-    });
+  // Manejar el evento de eliminación de tatuaje
+  onTattooDeleted(id: string) {
+    // Filtrar la lista para quitar el tatuaje eliminado
+    this.listTattoos = this.listTattoos.filter(tattoo => tattoo._id !== undefined && tattoo._id !== id);
   }
-
 }

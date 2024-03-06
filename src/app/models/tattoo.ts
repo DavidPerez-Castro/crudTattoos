@@ -1,5 +1,5 @@
 export class Tattoo {
-  _id?: number;
+  _id?: string;
   title: string;
   description: string;
   price: number;

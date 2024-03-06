@@ -1,48 +1,20 @@
-<div class="container mt-5 mb-5 d-flex align-items-center justify-content-center">
+<div class="container mt-5 mb-5">
   <div class="row">
-      <div class="">
-          <div class="card">
-              <div class="card-body text-center">
-                  <span class="titulo">LISTADO DE TATUAJES</span>
-                  <button class="btn btn-success float-end" routerLink="/new-tattoo">NUEVO</button>
-                  <table *ngIf="listTattoos.length > 0" class="table table-striped mt-3">
-                      <thead>
-                        <tr>
-                          <th scope="col">Titulo</th>
-                          <th scope="col">Descripción</th>
-                          <th scope="col">Precio</th>
-                          <th scope="col">Detalles</th>
-                          <th scope="col">Tamaño</th>
-                          <th scope="col">Color</th>
-                          <th scope="col">Estilo</th>
-                          <th scope="col">Parte del cuerpo</th>
-                          <th scope="col">Imagen</th>
-                          <th scope="col"></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr *ngFor="let tattoo of listTattoos">
-                          <td>{{ tattoo.title }}</td>
-                          <td>{{ tattoo.description }}</td>
-                          <td>{{ tattoo.price | currency:'MXN' }}</td>
-                          <td>{{ tattoo.details }}</td>
-                          <td>{{ tattoo.size }}</td>
-                          <td>{{ tattoo.color }}</td>
-                          <td>{{ tattoo.style }}</td>
-                          <td>{{ tattoo.bodyPart }}</td>
-                          <td>
-                            <img src="{{ tattoo.imageUrl }}" alt="{{ tattoo.title }}" style="max-width: 100px; max-height: 100px; object-fit: cover;">
-                          </td>
-                          <td>
-                              <i [routerLink]="['/edit', tattoo._id]" class="fas fa-edit text-primary"></i>
-                              <i (click)="deleteTattoo(tattoo._id)" class="fas fa-trash text-danger"></i>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <h5 style="text-align: start; margin-top: 10px;" *ngIf="listTattoos.length == 0">No hay tatuajes para mostrar</h5>
-              </div>
+    <div class="col-lg-12 offset-lg-0">
+      <div class="card">
+        <div class="card-body text-center">
+          <div class="mb-4">
+            <span class="titulo fs-6">LISTADO DE TATUAJES</span>
+            <button class="btn btn-success float-end" routerLink="/new-tattoo">NUEVO</button>
           </div>
+          <div class="row mt-3">
+            <div *ngFor="let tattoo of listTattoos" class="col-lg-4 col-md-6 mb-4" style="display: flex; justify-content: center;">
+              <app-tattoo-card [tattoo]="tattoo" (tattooDeleted)="onTattooDeleted($event)"></app-tattoo-card>
+            </div>
+          </div>
+          <h5 style="text-align: start; margin-top: 10px;" *ngIf="listTattoos.length == 0">No hay tatuajes para mostrar</h5>
+        </div>
       </div>
+    </div>
   </div>
 </div>

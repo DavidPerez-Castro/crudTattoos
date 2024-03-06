@@ -1,0 +1,15 @@
+<div *ngIf="tattoo" class="card p-1" style="width: 18rem;">
+  <div class="img" style="height: 19rem;">
+    <img [src]="tattoo.imageUrl" class="card-img-top" alt="{{ tattoo.title }}" style="width: 100%; height: 100%; object-fit: cover;">
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ tattoo.title }}</h5>
+    <p class="card-text">{{ tattoo.description }}</p>
+    <p class="card-text">{{ tattoo.price | currency:'MXN' }}</p>
+    <p class="card-text">{{ tattoo.details }}</p>
+  </div>
+  <div class="funtions" style="display: flex; justify-content: space-evenly;">
+    <a [routerLink]="['/edit', tattoo._id]" class="btn btn-primary">Editar</a>
+    <button (click)="deleteTattoo(tattoo._id)" class="btn btn-danger">Eliminar</button>
+  </div>
+</div>
